@@ -8,13 +8,13 @@ def attr_to_dict_access(code_string):
     # Use regex to find all attribute accesses in the code
     pattern = r'(\w+)\.(\w+)'
     matches = re.findall(pattern, code_string)
-    
+
     # Replace each attribute access with a dictionary access
     for match in matches:
         old_access = match[0] + '.' + match[1]
         new_access = match[0] + '["' + match[1] + '"]'
         code_string = code_string.replace(old_access, new_access)
-    
+
     return code_string
 
 
@@ -23,7 +23,7 @@ def attr_to_dict_access(code_string):
 if len(sys.argv) != 6:
     print("Usage: python access_to_dict.py <file_path> <start_line> <start_col> <end_line> <end_col>")
     sys.exit(1)
-    
+
 file_path = sys.argv[1]
 try:
     selection_start_line = int(sys.argv[2])
@@ -50,7 +50,7 @@ last_line_text = selected_lines[-1][selection_end_column:]
 selected_text = '\n'.join(selected_lines)
 selected_text = selected_text.replace(first_line_text, '')
 selected_text = selected_text.replace(last_line_text, '')
-modified_text = dict_to_attr_access(selected_text)
+modified_text = attr_to_dict_access(selected_text)
 
 print(repr(selected_text))
 print(repr(modified_text))
