@@ -10,15 +10,13 @@ def dict_to_attr_access(code_string):
     # Use regex to find all dictionary accesses in the code
     pattern = r'(\w+)\[(\'|")(\w+)(\'|")\]'
     matches = re.findall(pattern, code_string)
-    
+
     # Replace each dictionary access with an attribute access
     for match in matches:
-    			 print(match, code_string)
-    			 old_access = match[0] + '[' + match[1] + match[2] + match[3]  + ']'
-    			 new_access = match[0] + '.' + match[2]
-    			 print(old_access, new_access)
-    			 code_string = code_string.replace(old_access, new_access)
-    
+        old_access = match[0] + '[' + match[1] + match[2] + match[3] + ']'
+        new_access = match[0] + '.' + match[2]
+        code_string = code_string.replace(old_access, new_access)
+
     return code_string
 
 
@@ -26,7 +24,7 @@ def dict_to_attr_access(code_string):
 if len(sys.argv) != 6:
     print("Usage: python dict_to_access.py <file_path> <start_line> <start_col> <end_line> <end_col>")
     sys.exit(1)
-    
+
 file_path = sys.argv[1]
 try:
     selection_start_line = int(sys.argv[2])
@@ -55,8 +53,6 @@ selected_text = selected_text.replace(first_line_text, '')
 selected_text = selected_text.replace(last_line_text, '')
 modified_text = dict_to_attr_access(selected_text)
 
-print(repr(selected_text))
-print(repr(modified_text))
 if modified_text == selected_text:
     print("No changes made.")
     sys.exit(0)
