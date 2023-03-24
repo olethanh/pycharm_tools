@@ -1,5 +1,5 @@
-This two scripts that allow me to easily convert `d["key"]` to `d.key` in Pycharm.  
-This section is written by me Olivier. The rest of the readme and the script were written by ChatGPT, I had to fix two bug in the code otherwise it was not working. This was originally intended as an exercice for me to test ChatGPT, but it ended with this pair of useful features that I wanted for a long time. Of course, you are only seeing here the finale state, and not the failed branch and experiment
+This two scripts that allow me to easily convert `d["key"]` to `d.key` and vice versa in Pycharm.  
+This section is written by me Olivier. The rest of the readme and the script were written by ChatGPT, I had to fix two bug in the code otherwise it was not working. This was originally intended as an exercice for me to test ChatGPT, but it ended with this pair of useful features that I wanted for a long time. Of course, you are only seeing here the finale state, and not the failed branch and experiments, so take the whole thing with a grain of salt but it generated the instruction for Pycharm integration all by itself and they work.
 
 
 Following by ChatGPT:
