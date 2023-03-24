@@ -52,8 +52,6 @@ selected_text = selected_text.replace(first_line_text, '')
 selected_text = selected_text.replace(last_line_text, '')
 modified_text = attr_to_dict_access(selected_text)
 
-print(repr(selected_text))
-print(repr(modified_text))
 if modified_text == selected_text:
     print("No changes made.")
     sys.exit(0)
